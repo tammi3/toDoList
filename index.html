@@ -1,0 +1,30 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO DO LIST</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="vue-app">
+      <div id="header">
+        <h1>TO-DO LIST</h1>
+        <input
+          type="text"
+          id="textArea"
+          v-model="activity"
+          v-on:keydown.enter="addItem"
+        />
+        <button class="enterBtn" v-on:click="addItem">ENTER</button>
+      </div>
+      <ul>
+        <li id="flex-container" v-for="(item, index) in toDoItems" :key="index">
+          <p class="item"><b>{{index+=1}}.</b> {{item}}</p>
+          <button class="btn" v-on:click="removeItem(index-=1)">DELETE</button>
+        </li>
+      </ul>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+body {
+  background-color: #41b06e;
+}
+
+.item {
+  flex-grow: 4;
+  font-size: 18px;
+}
+
+.btn {
+  background: #e0d6c3;
+  background-image: -webkit-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: -moz-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: -ms-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: -o-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: linear-gradient(to bottom, #e0d6c3, #141e46);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  margin: 10px;
+  font-size: 18px;
+  padding: 5px 7px 5px 7px;
+  text-decoration: none;
+  flex-grow: 1;
+}
+.btn:hover {
+  background: #3c6148;
+  text-decoration: none;
+}
+.enterBtn {
+  background: #e0d6c3;
+  background-image: -webkit-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: -moz-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: -ms-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: -o-linear-gradient(top, #e0d6c3, #141e46);
+  background-image: linear-gradient(to bottom, #e0d6c3, #141e46);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  margin: 10px;
+  font-size: 15px;
+  padding: 5px 7px 5px 7px;
+  text-decoration: none;
+}
+#vue-app {
+  background-color: #8decb4;
+  margin: 20px;
+  padding: 30px;
+}
+#flex-container {
+  display: flex;
+  justify-content: center;
+}
+#header {
+  text-align: center;
+}
+#textArea {
+  width: 300px;
+  height: 30px;
+}
+input[type="text"]:focus {
+  background-color: #88beaa;
+}
