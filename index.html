@@ -4,26 +4,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO DO LIST</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="vue-app">
-      <div id="header">
-        <h1>TO-DO LIST</h1>
+      <div class="message-box">
+        <div class="container">
+          <h2>TIPS & TRICKS</h2>
+          <p>Focus on one task at a time rather than multiple tasks at once.</p>
+        </div>
+      </div>
+      <header>
+        <img src="images/checklist.png" alt="" />
+        <h1>TO-DO APP</h1>
+        <a href="main.html"
+          ><i class="fa fa-angle-left fa-4x" aria-hidden="true"></i
+        ></a>
+      </header>
+      <div class="enter-task">
         <input
           type="text"
           id="textArea"
-          v-model="activity"
-          v-on:keydown.enter="addItem"
+          placeholder="Enter tasks here"
+          v-model="todo.task"
+          v-on:keydown.enter="addTask"
         />
-        <button class="enterBtn" v-on:click="addItem">ENTER</button>
+        <input type="date" v-model="todo.date" />
+        <input type="time" v-model="todo.time" />
+        <i
+          class="fa fa-plus-circle fa-2x"
+          aria-hidden="true"
+          v-on:click="addTask"
+        ></i>
       </div>
-      <ul>
-        <li id="flex-container" v-for="(item, index) in toDoItems" :key="index">
-          <p class="item"><b>{{index+=1}}.</b> {{item}}</p>
-          <button class="btn" v-on:click="removeItem(index-=1)">DELETE</button>
-        </li>
-      </ul>
+
+      <div>
+        <div class="status-containers">
+          <div class="ongoing">
+            <div class="ongoing-header" v-if="toDos !=''">
+              <h1>ONGOING TASKS</h1>
+              <p>once a task is completed, mark as finished</p>
+            </div>
+            <div class="ongoing-task">
+              <ul>
+                <li v-for="(todo, index) in toDos" :key="index">
+                  <h1>{{todo.date}}</h1>
+                  <div class="flex-container">
+                    <div class="container">
+                      <label class="container-checkbox">
+                        <input type="checkbox" @click="completedTask(index)" />
+                        <span class="checkmark" ></span>
+                      </label>
+                      <div class="task"><p>{{todo.task}}</p></div>
+                      <p class="time">{{todo.time}}</p>
+                    </div>
+                    <div class="container">
+                      <i
+                        class="fa fa-trash fa-2x"
+                        aria-hidden="true"
+                        v-on:click="removeTask(index)"
+                      ></i>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="completed">
+            <div class="completed-header" v-if="completedToDos!=''">
+              <h1>COMPLETED TASKS</h1>
+              <p>Well done!</p>
+            </div>
+            <div class="completed-task">
+              <ul>
+                <li v-for="(todo, index) in completedToDos" :key="index">
+                  <h1>{{todo.date}}</h1>
+                  <div class="flex-container">
+                    <div class="container">
+                      <div class="task"><p>{{todo.task}}</p></div>
+                    </div>
+                    <div class="container">
+                      <p class="time">{{todo.time}}</p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>
